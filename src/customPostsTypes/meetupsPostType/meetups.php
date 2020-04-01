@@ -17,6 +17,7 @@ class WPMAD_MO_MeetupsPostType
     public function __construct()
     {
         add_action( 'init', array( $this, 'wpmad_mo_add_meetup_post_type' ) );
+        add_action( 'init', array( $this, 'wpmad_mo_create_post_type_fields' ) );
         add_filter( 'archive_template', array( $this, 'wpmad_mo_get_post_type_templates' ) );
         add_filter( 'single_template', array( $this, 'wpmad_mo_get_post_type_templates' ) );
     }
@@ -96,5 +97,132 @@ class WPMAD_MO_MeetupsPostType
         }
 
         return $template;
+    }
+
+    public function wpmad_mo_create_post_type_fields()
+    {
+        if ( function_exists( 'acf_add_local_field_group' ) ) :
+            acf_add_local_field_group( array(
+                'key' => 'group_5e84a8f4e752a',
+                'title' => __( 'Meetup Settings', 'meetups_organizer_textdomain' ),
+                'fields' => array(
+                    array(
+                        'key' => 'field_5e84a8fdf78a3',
+                        'label' => __( 'YouTube Vídeo Embed', 'meetups_organizer_textdomain' ),
+                        'name' => '_meetup_youtube_video_embed',
+                        'type' => 'textarea',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'maxlength' => '',
+                        'rows' => 3,
+                        'new_lines' => '',
+                    ),
+                    array(
+                        'key' => 'field_5e84a972f78a4',
+                        'label' => __( 'Speakers', 'meetups_organizer_textdomain' ),
+                        'name' => '_meetup_speakers',
+                        'type' => 'repeater',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'collapsed' => 'field_5e84a9aff78a5',
+                        'min' => 1,
+                        'max' => 5,
+                        'layout' => 'block',
+                        'button_label' => __( 'Add Speaker', 'meetups_organizer_textdomain' ),
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_5e84a9aff78a5',
+                                'label' => __( 'Name', 'meetups_organizer_textdomain' ),
+                                'name' => '_meetup_speaker_name',
+                                'type' => 'text',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '50',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'default_value' => '',
+                                'placeholder' => '',
+                                'prepend' => '',
+                                'append' => '',
+                                'maxlength' => '',
+                            ),
+                            array(
+                                'key' => 'field_5e84a9faf78a6',
+                                'label' => __( 'Photo', 'meetups_organizer_textdomain' ),
+                                'name' => '_meetup_speaker_photo',
+                                'type' => 'image',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '50',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'return_format' => 'array',
+                                'preview_size' => 'medium',
+                                'library' => 'all',
+                                'min_width' => '',
+                                'min_height' => '',
+                                'min_size' => '',
+                                'max_width' => '',
+                                'max_height' => '',
+                                'max_size' => '',
+                                'mime_types' => '',
+                            ),
+                            array(
+                                'key' => 'field_5e84aa1ff78a7',
+                                'label' => __( 'Link', 'meetups_organizer_textdomain' ),
+                                'name' => '_meetup_speaker_link',
+                                'type' => 'link',
+                                'instructions' => '',
+                                'required' => 0,
+                                'conditional_logic' => 0,
+                                'wrapper' => array(
+                                    'width' => '',
+                                    'class' => '',
+                                    'id' => '',
+                                ),
+                                'return_format' => 'array',
+                            ),
+                        ),
+                    ),
+                ),
+                'location' => array(
+                    array(
+                        array(
+                            'param' => 'post_type',
+                            'operator' => '==',
+                            'value' => $this->post_type,
+                        ),
+                    ),
+                ),
+                'menu_order' => 0,
+                'position' => 'normal',
+                'style' => 'default',
+                'label_placement' => 'top',
+                'instruction_placement' => 'label',
+                'hide_on_screen' => '',
+                'active' => true,
+                'description' => '',
+            ) );
+        endif;
     }
 }
