@@ -108,9 +108,9 @@ class WPMAD_MO_MeetupsPostType
                 'fields' => array(
                     array(
                         'key' => 'field_5e84a8fdf78a3',
-                        'label' => __( 'YouTube Vídeo Embed', 'meetups_organizer_textdomain' ),
-                        'name' => '_meetup_youtube_video_embed',
-                        'type' => 'textarea',
+                        'label' => __( 'Vídeo Embed', 'meetups_organizer_textdomain' ),
+                        'name' => '_meetup_video_embed',
+                        'type' => 'text',
                         'instructions' => '',
                         'required' => 0,
                         'conditional_logic' => 0,
