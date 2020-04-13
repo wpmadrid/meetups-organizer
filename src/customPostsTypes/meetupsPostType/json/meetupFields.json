@@ -4,23 +4,42 @@
         "title": "Meetup Settings",
         "fields": [
             {
-                "key": "field_5e84a8fdf78a3",
-                "label": "Vídeo Embed",
-                "name": "_meetup_video_embed",
+                "key": "field_5e94515da950d",
+                "label": "Video Code",
+                "name": "_meetup_video_code",
                 "type": "text",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
-                    "width": "",
+                    "width": "30",
                     "class": "",
                     "id": ""
                 },
                 "default_value": "",
                 "placeholder": "",
-                "maxlength": "",
-                "rows": 3,
-                "new_lines": ""
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5e9450fea950c",
+                "label": "Enabled Chat?",
+                "name": "_meetup_chat_enabled",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "30",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
             },
             {
                 "key": "field_5e84a972f78a4",
