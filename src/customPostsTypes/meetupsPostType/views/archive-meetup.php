@@ -1,14 +1,24 @@
 <?php get_header() ?>
 <section class="mo-articles-list">
-    <h1>Meetups</h1>
-    <div class="mo-articles-container">
-        <a href="#">
-            <article class="mo-article" style="background-image: url('https://cdn.pixabay.com/photo/2020/04/05/07/25/sunset-5004905_1280.jpg')">
-                <p class="mo-article-date"><img src="/inc/images/calendar.svg" alt="Fecha"/> 29 de Julio</p>
-                <p class="mo-article-title">Lorem ipsum dolor sit amet</p>
-                <p class="mo-article-authors">JuanMa Civico</p>
-            </article>
-        </a>
-    </div>
+    <h1><?php _e( 'Meetups', 'meetups_organizer_textdomain' ) ?></h1>
+    <?php if ( have_posts() ) : ?>
+        <div class="mo-articles-container">
+            <?php while( have_posts() ) : the_post(); ?>
+                <a href="<?php echo get_the_permalink() ?>" title="<?php echo get_the_title() ?>">
+                    <?php if ( $featured_image = get_the_post_thumbnail_url( $post->ID, 'medium' ) ) : ?>
+                        <article class="mo-article" style="background-image: url('<?php echo $featured_image ?>')">
+                    <?php else : ?>
+                        <article class="mo-article" style="background-color: #39CDC6">
+                    <?php endif ?>
+                        <p class="mo-article-date"><img src="<?php echo WPMAD_MO_PLUGIN_URL . 'inc/images/calendar.svg' ?>" alt="<?php _e( 'Date of Meetup', 'meetups_organizer_textdomain' ) ?>"/><?php echo get_the_date() ?></p>
+                        <p class="mo-article-title"><?php echo get_the_title() ?></p>
+                        <?php if ( $terms = get_the_terms( $post->ID, 'subject' ) ) : ?>
+                            <p class="mo-article-authors"><?php echo $terms[0]->name ?></p>
+                        <?php endif ?>
+                    </article>
+                </a>
+            <?php endwhile ?>
+        </div>
+    <?php endif ?>
 </section>
 <?php get_footer();
