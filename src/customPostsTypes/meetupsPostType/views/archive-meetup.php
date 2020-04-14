@@ -19,6 +19,7 @@
                 </a>
             <?php endwhile ?>
         </div>
-    <?php endif ?>
+        <?php the_posts_pagination();
+    endif; ?>
 </section>
 <?php get_footer();
