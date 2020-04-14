@@ -1,17 +1,24 @@
 <?php get_header();
 
-if ( $featured_image = get_the_post_thumbnail_url( $post->ID, 'large' ) ) : ?>
-    <section class="mo-hero" style="--background-image: url('<?php echo $featured_image ?>')">
-<?php else : ?>
-    <section class="mo-hero" style="background-color: #39CDC6">
-<?php endif ?>
-    <div class="mo-video">
-        <?php if ( $meetup_video_code = get_field( '_meetup_video_code' ) ) : ?>
-            <iframe class="mo-hidden" width="560" height="349" src="<?php echo 'https://www.youtube.com/embed/' . $meetup_video_code . '?controls=0' ?>" frameborder="0" allowfullscreen></iframe>
-            <?php if ( $meetup_chat_enabled = get_field( '_meetup_chat_enabled' ) ) : ?>
-                <iframe src="https://www.youtube.com/live_chat?v=<?php echo $meetup_video_code ?>&embed_domain=<?php echo $_SERVER['SERVER_NAME'] ?>" width="560" height="349" frameborder="0" allowfullscreen></iframe>
-            <?php endif;
-        endif; ?>
+if ( $featured_image = get_the_post_thumbnail_url( $post->ID, 'large' ) ) :
+    $section_style = '--background-image: url(\'' . $featured_image . '\')';
+else :
+    $section_style = 'background-color: #39CDC6';
+endif;
+
+$meetup_chat_enabled = get_field( '_meetup_chat_enabled' );
+$class_comments      = $meetup_chat_enabled ? 'mo-video-comments' : 'mo-video-single'; ?>
+
+<section class="mo-hero" style="<?php echo $section_style ?>">
+    <div class="<?php echo $class_comments ?>">
+        <div class="mo-video">
+            <?php if ( $meetup_video_code = get_field( '_meetup_video_code' ) ) : ?>
+                <iframe class="mo-hidden" width="560" height="349" src="<?php echo 'https://www.youtube.com/embed/' . $meetup_video_code . '?controls=0' ?>" frameborder="0" allowfullscreen></iframe>
+                <?php if ( $meetup_chat_enabled ) : ?>
+                    <iframe src="https://www.youtube.com/live_chat?v=<?php echo $meetup_video_code ?>&embed_domain=<?php echo $_SERVER['SERVER_NAME'] ?>" width="560" height="349" frameborder="0" allowfullscreen></iframe>
+                <?php endif;
+            endif; ?>
+        </div>
     </div>
     <div class="mo-hero-content">
         <?php if ( $meetup_video_code ) : ?>
