@@ -50,7 +50,6 @@ class WPMAD_MO_SubjectCategory
                 'slug'          => __( 'subject', 'meetups_organizer_textdomain' ),
                 'with_front'    => false,
                 'hierarchical'  => true,
-                'ep_mask'       => EP_NONE,
             )
         );
 
@@ -60,7 +59,7 @@ class WPMAD_MO_SubjectCategory
     public function wpmad_mo_get_subject_category_template( $template )
     {
         if ( get_query_var( 'taxonomy' ) === $this->taxonomy )
-            $template = PLUGIN_DIR . 'src/customTaxonomies/subjectCategory/views/taxonomy-subject.php';
+            $template = WPMAD_MO_PLUGIN_DIR . 'src/customTaxonomies/subjectCategory/views/taxonomy-subject.php';
 
         return $template;
     }
