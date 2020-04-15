@@ -39,6 +39,9 @@ if ( !defined( 'WPMAD_MO_PLUGIN_URL' ) )
 
 function wpmad_mo_plugin_install()
 {
+    if ( !is_plugin_active( 'advanced-custom-fields-pro/acf.php' ) )
+        wp_die( __( 'It is necessary for the <a href="https://www.advancedcustomfields.com/pro/" target="_blank">Advanced Custom Field</a> plugin to be active for this plugin to work properly', 'meetups_organizer_textdomain' ) . '<br /><a href="' . admin_url( 'plugins.php' ) . '">&laquo; ' . __( 'Back to plugins page.', 'meetups_organizer_textdomain' ) . '</a>' );
+
     if ( !current_user_can( 'activate_plugins' ) )
         wp_die( __( 'Don\'t have enough permissions to install this plugin.', 'meetups_organizer_textdomain' ) . '<br /><a href="' . admin_url( 'plugins.php' ) . '">&laquo; ' . __( 'Back to plugins page.', 'meetups_organizer_textdomain' ) . '</a>' );
 }
