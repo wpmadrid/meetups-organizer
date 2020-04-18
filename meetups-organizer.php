@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Meetups Organizer
-Plugin URI: https://www.wpmadrid.es
+Plugin URI: https://github.com/wpmadrid/meetups-organizer
 Description: A plugin to post information about Meetups celebrated in the local community
 Version: 1.0
-Author: WordPress Madrid Team
-Author URI: https://www.wpmadrid.es
+Author: Juan Manuel Civico Cabrera
+Author URI: https://www.juanmacivico87.com/
 License: GPLv2 or later
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  meetups_organizer_textdomain
