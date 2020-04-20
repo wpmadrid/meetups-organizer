@@ -13,9 +13,9 @@ $class_comments      = $meetup_chat_enabled ? 'mo-video-comments' : 'mo-video-si
     <div class="<?php echo $class_comments ?>">
         <div class="mo-video">
             <?php if ( $meetup_video_code = get_field( '_meetup_video_code' ) ) : ?>
-                <iframe class="mo-hidden" width="560" height="349" src="<?php echo 'https://www.youtube.com/embed/' . $meetup_video_code . '?controls=0' ?>" frameborder="0" allowfullscreen></iframe>
+                <iframe class="mo-hidden" width="560" height="349" src="<?php echo 'https://www.youtube.com/embed/' . $meetup_video_code . '?controls=1' ?>" frameborder="0" allowfullscreen></iframe>
                 <?php if ( $meetup_chat_enabled ) : ?>
-                    <iframe src="https://www.youtube.com/live_chat?v=<?php echo $meetup_video_code ?>&embed_domain=<?php echo $_SERVER['SERVER_NAME'] ?>" width="560" height="349" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="mo-hidden" src="https://www.youtube.com/live_chat?v=<?php echo $meetup_video_code ?>&embed_domain=<?php echo $_SERVER['SERVER_NAME'] ?>" width="560" height="349" frameborder="0" allowfullscreen></iframe>
                 <?php endif;
             endif; ?>
         </div>
