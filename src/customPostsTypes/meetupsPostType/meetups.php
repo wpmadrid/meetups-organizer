@@ -5,7 +5,7 @@ class WPMAD_MO_MeetupsPostType
     public $post_type     = 'meetup';
 
     public $menu_icon_url = WPMAD_MO_PLUGIN_URL . 'inc/images/meetup.svg';
-    public $support       = array( 'title', 'editor', 'thumbnail', 'excerpt' );
+    public $support       = array( 'title', 'editor', 'thumbnail' );
     public $taxonomies    = array( 'subject' );
     public $rewrite       = array( 
         'slug'       => 'meetup',
