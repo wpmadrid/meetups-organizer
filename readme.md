@@ -49,6 +49,17 @@ El plugin está aún en fase beta, por lo que disculpa si encuentras algún erro
 
 Si te animas, estaré encantado de aceptarte una Pull Request, pero ten en cuenta, que no aceptaré PR's que no tengan un comentario o que traigan algún tipo de código malicioso.
 
+## Historial de versiones
+
+### 1.1:
+
+- Incluir el campo "fecha" en el CPT "Meetups" y mostrar su valor, tanto en el listado de Meetups como en la ficha de cada uno de ellos, sustituyendo la fecha de publicación de la entrada.
+- Sustituir la versión normal del archivo "style.css" por su versión minificada.
+
+### 1.0:
+
+- Versión de lanzamiento del plugin.
+
 ## Agredecimientos
 
 Quisiera agradecer a la [comunidad de WPMadrid](https://wpmadrid.es/) que me hayan dado la oportunidad de desarrollar este plugins para nuestros Meetups y a [Sonia Ruiz](https://twitter.com/Yune__vk) por echarme una mano con la maquetación de los archivos "archive.php" y "single.php".

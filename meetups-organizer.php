@@ -3,7 +3,7 @@
 Plugin Name: Meetups Organizer
 Plugin URI: https://github.com/wpmadrid/meetups-organizer
 Description: A plugin to post information about Meetups celebrated in the local community
-Version: 1.0
+Version: 1.1
 Author: Juan Manuel Civico Cabrera
 Author URI: https://www.juanmacivico87.com/
 License: GPLv2 or later

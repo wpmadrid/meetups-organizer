@@ -26,8 +26,10 @@ $class_comments      = $meetup_chat_enabled ? 'mo-video-comments' : 'mo-video-si
         <?php endif ?>
         <h1><?php echo get_the_title() ?></h1>
         <div class="mo-meta">
-            <p class="mo-meta-date"><?php echo get_the_date() ?></p>
-            <?php if ( $terms = get_the_terms( $post->ID, 'subject' ) ) : ?>
+            <?php if ( $meetup_date = get_field( '_meetup_date' ) ) : ?>
+                <p class="mo-meta-date"><?php echo $meetup_date ?></p>
+            <?php endif;
+            if ( $terms = get_the_terms( $post->ID, 'subject' ) ) : ?>
                 <p class="mo-meta-info"><?php echo $terms[0]->name ?></p>
             <?php endif ?>
         </div>
@@ -80,7 +82,9 @@ $class_comments      = $meetup_chat_enabled ? 'mo-video-comments' : 'mo-video-si
                 <?php while( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
                     <a href="<?php echo get_the_permalink() ?>" title="<?php echo get_the_title() ?>">
                         <article class="mo-article">
-                            <p class="mo-article-date"><?php echo get_the_date() ?></p>
+                            <?php if ( $meetup_date = get_field( '_meetup_date', $post->ID ) ) : ?>
+                                <p class="mo-article-date"><?php echo $meetup_date ?></p>
+                            <?php endif ?>
                             <p class="mo-article-title"><?php echo get_the_title() ?></p>
                             <?php if ( $terms = get_the_terms( $post->ID, 'subject' ) ) : ?>
                                 <p class="mo-article-authors"><?php echo $terms[0]->name ?></p>

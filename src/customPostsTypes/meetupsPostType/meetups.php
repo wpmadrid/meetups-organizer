@@ -145,6 +145,23 @@ class WPMAD_MO_MeetupsPostType
                         'ui_off_text' => '',
                     ),
                     array(
+                        'key' => 'field_5ebd2f3601005',
+                        'label' => 'Date',
+                        'name' => '_meetup_date',
+                        'type' => 'date_picker',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '30',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'display_format' => 'j F Y',
+                        'return_format' => 'j F Y',
+                        'first_day' => 1,
+                    ),
+                    array(
                         'key' => 'field_5e84a972f78a4',
                         'label' => __( 'Speakers', 'meetups_organizer_textdomain' ),
                         'name' => '_meetup_speakers',

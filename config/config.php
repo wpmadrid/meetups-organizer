@@ -20,7 +20,7 @@ class WPMAD_MO_PluginConfig
         if ( !is_admin() )
         {
             wp_enqueue_script( 'wpmad-mo-scripts', WPMAD_MO_PLUGIN_URL . 'inc/js/scripts.js', array(), null, true );
-            wp_enqueue_style( 'wpmad-mo-styles', WPMAD_MO_PLUGIN_URL . 'inc/css/style.css', array(), null );
+            wp_enqueue_style( 'wpmad-mo-styles', WPMAD_MO_PLUGIN_URL . 'inc/css/style.min.css', array(), null );
         }
     }
 }

@@ -10,8 +10,10 @@
                         <article class="mo-article" style="background-image: url('<?php echo $featured_image ?>')">
                     <?php else : ?>
                         <article class="mo-article" style="background-color: #39CDC6">
-                    <?php endif ?>
-                        <p class="mo-article-date"><img src="<?php echo WPMAD_MO_PLUGIN_URL . 'inc/images/calendar.svg' ?>" alt="<?php _e( 'Date of Meetup', 'meetups_organizer_textdomain' ) ?>"/><?php echo get_the_date() ?></p>
+                    <?php endif;
+                        if ( $meetup_date = get_field( '_meetup_date', $post->ID ) ) : ?>
+                            <p class="mo-article-date"><img src="<?php echo WPMAD_MO_PLUGIN_URL . 'inc/images/calendar.svg' ?>" alt="<?php _e( 'Date of Meetup', 'meetups_organizer_textdomain' ) ?>"/><?php echo $meetup_date ?></p>
+                        <?php endif ?>
                         <p class="mo-article-title"><?php echo get_the_title() ?></p>
                     </article>
                 </a>
